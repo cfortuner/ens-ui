@@ -4,10 +4,11 @@ import { jsx } from "@theme-ui/core";
 import { Flex, Input } from "theme-ui"
 
 
-
 /**
- * TODO
- * - add different search icon sizes
+ * A search bar.
+ *
+ * @param onChange - Handler for when the input changes
+ * @param placeholder - Text for displaying the placeholder in the input box
  */
 const SearchBar = ({ onChange, placeholder="Search for an ENS name" }) => (
   <Flex sx={{

@@ -11,8 +11,8 @@ Modal.setAppElement("#root");
  * - Add icon pack and replace the x here in the modal
  * - Move the x to the right side of the modal
  *
- * @param {*} param0
- * @returns
+ * @param isOpen - Should the modal be open?
+ * @param toggleModal - Handler for when the modal is closed.
  */
 const ENSDomainInfoModal = ({isOpen, toggleModal}) => (
   <Modal

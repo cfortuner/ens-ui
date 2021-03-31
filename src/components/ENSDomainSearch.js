@@ -49,7 +49,25 @@ const getRegistrationsQuery = gql`
   }
 `
 
+/**
+ * Top level component for the ENS Domain search.
+ *
+ * Handles Fetching from The Graph and stores the results of
+ * - search
+ * - sort radio buttons
+ *
+ * Some of these features could be refactored to be generic / composable
+ * for new features. Depending on what changes we want to add next, we could
+ * - refactor the sort radio button group to take in child components as props.children
+ *  to enable any type of radio button group
+ * - Refactor the search results to just be a list of child components as props.children
+ * - separate generic components into their own folder.
+ * - If we want to fetch more than 10 entries as once, I would
+ * update the gql query to handle the sorting for us using the graphql query params (orderDirection)
+ * - add paginataion to support fetching more than the 10 most recent registrations.
+ */
 const ENSDomainSearch = () => {
+  // sort state
   const [activeSort, setActiveSort] = useState(undefined)
   const onSortChange = (sort) => {
     setActiveSort((prevSort) => {
@@ -60,11 +78,12 @@ const ENSDomainSearch = () => {
     })
   }
 
+  // search state
   const [searchString, setSearchString] = useState('')
   const onSearchChange = (e) => setSearchString(e.target.value)
 
-  // todo: fetch the data
 
+  // fetch ens domains from ENS subgraph
   const { loading, error, data: query } = useQuery(getRegistrationsQuery)
 
   // Mapping the registration data to a simpler object

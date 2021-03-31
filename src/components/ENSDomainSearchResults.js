@@ -9,7 +9,7 @@ import ENSDomainInfoModal from './ENSDomainInfoModal';
  * @param activeSort - Object containing the name and fn of the active sort to apply to the results
  * @param searchString - The value of the current search string
  *
- * This component is responsible for displaying domain search results
+ * This component is responsible for displaying domain search results and handling domain name click events
  */
 const ENSDomainSearchResults = ({ activeSort, searchString, domainSearchResults }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)

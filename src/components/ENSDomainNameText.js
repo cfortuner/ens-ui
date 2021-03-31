@@ -4,14 +4,12 @@ import { jsx, Text } from 'theme-ui';
 
 /**
  *
- * TODO:
- * - make this accessible but converting the a tag to a button
+ * @param name - text name "einst.eth"
+ * @param onClick - handler for onClick event
  */
-
-const ENSDomainNameText = ({id, name, onClick}) => (
+const ENSDomainNameText = ({name, onClick}) => (
   <Text
     onClick={onClick}
-    key={id}
     sx={{
       py: 2,
       fontSize: [25, 40, 50, 80],
