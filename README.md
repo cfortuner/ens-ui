@@ -2,6 +2,8 @@
 
 A simple react app to display the top 10 most recently registered ENS domain names from The Graph
 
+<img src='./screenshot.png'/>
+
 ### Features
 
 - sorting
