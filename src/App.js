@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+/** @jsxRuntime classic */
+/**@jsx jsx */
+import { jsx,ThemeProvider} from 'theme-ui';
+import theme from './theme';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import ENSDomainSearch from './components/ENSDomainSearch';
 
+
+/**
+ *
+ * TODO:
+ * - Test with all major browsers / mobile devices & add cross platform css attributes
+ * - Add aria tags for accessibility
+ * - add icon packs
+ */
+
+const client = new ApolloClient({
+  uri: 'https://api.thegraph.com/subgraphs/name/ensdomains/ens',
+  cache: new InMemoryCache()
+})
+
+/**
+ * A simple app to fetch the 10 most recently registered
+ * ENS Domain names and search and sort them.
+ */
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>
+        <ENSDomainSearch />
+      </ApolloProvider>
+    </ThemeProvider>
   );
 }
 
